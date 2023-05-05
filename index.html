@@ -13,8 +13,9 @@
                 // Family Objek        
                 var family = new FamilyTree(document.getElementById("tree"), {
                         nodeBinding: {field_0: "name"},
-                        enableSearch: false,
-                        template: "hugo",
+                        enableSearch: false, // disable search
+                        template: "hugo", // template hugi
+                        scaleInitial: FamilyTree.match.boundary, // agar tidak banyak space
                         nodeMenu: {
                                 WhatsApp: {
                                         text: "Whats App Me",
@@ -60,21 +61,25 @@
                                 args.html = args.html.replace("path", "path stroke-dasharray='3, 2'");
                         }
                 })
+
+                family.on('field', function(sender, args){
+                        
+                });
         
         
         
                 // Susunan angota keluarga
                 nodes= [
-                        { id: "A", pids: ["M"], name: "Farid Makrup", gender: 'male'},
-                        { id: "M", pids: ["A"], name: "Yayah Hilaliah", gender: 'female'},
-                        { id: "A1",fid:"A", mid:"M", pids: ["M1"], name: "Muhammad Farras Ma'ruf",gender: 'male', numbers:[6281287873121] },
-                        { id: "A2",fid:"A", mid:"M",pids:["Ano1"], name: "Farah Diba Alba Fitria" , gender: 'female'},
-                        { id: "A3",fid:"A", mid:"M", name: "Fienda Oryza Sativa Putri", gender: 'female' },
-                        { id: "A4",fid:"A", mid: "M", angkatfid:true , name: "Endah" , gender: 'female'},
-                        { id: "M1", pids: ["A1"], name: "Tania Dwi Haryanti" , gender: 'female', secret:true},
-                        { id: 3, fid: "A1", mid:"M1" ,name: "Muhammad Faris Ma'ruf",gender: 'male'},
-                        { id: 4, fid: "A1", mid:"M1" ,name: "Nu'man Noah Ma'ruf" , gender: 'male'},
-                        { id: "Ano1", pids: ["A2"], name: "Ghazi Hazazi" , gender: 'male'}
+                        { id: "AA", pids: ["MM"], name: "Farid Makrup", gender: 'male'},
+                        { id: "MM", pids: ["AA"], name: "Yayah Hilaliah", gender: 'female'},
+                        { id: "AA1",fid:"AA", mid:"MM", pids: ["MM1"], name: "Muhammad Farras Ma'ruf",gender: 'male', numbers:[6281287873121] },
+                        { id: "AA2",fid:"AA", mid:"MM",pids:["Ano1"], name: "Farah Diba Alba Fitria" , gender: 'female'},
+                        { id: "AA3",fid:"AA", mid:"MM", name: "Fienda Oryza Sativa Putri", gender: 'female' },
+                        { id: "AA4",fid:"AA", mid: "MM", angkatfid:true , name: "Endah" , gender: 'female'},
+                        { id: "MM1", pids: ["AA1"], name: "Tania Dwi Haryanti" , gender: 'female', secret:true},
+                        { id: "AA11", fid: "AA1", mid:"MM1" ,name: "Muhammad Faris Ma'ruf",gender: 'male'},
+                        { id: "AA12", fid: "AA1", mid:"MM1" ,name: "Nu'man Noah Ma'ruf" , gender: 'male'},
+                        { id: "Ano1", pids: ["AA2"], name: "Ghazi Hazazi" , gender: 'male'}
                     ]
         
                 family.load(nodes)
